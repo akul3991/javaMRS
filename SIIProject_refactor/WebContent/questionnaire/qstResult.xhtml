@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+        <link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet" />
+        <link type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet" />
+        <link type="text/css" href="../../CSS/styles.css" rel="stylesheet" />
+</head>
+<body id="gallery">
+<f:view>
+	<h:form>
+	<center>
+		<h2> Risultati del tuo questionario: </h2>
+		<br/>
+		<h3> Informazioni demografiche: </h3>
+		<p> Eta' : ${userSessionBean.currentUser.questionaryEntity.age} </p>
+		<p> Sesso : ${userSessionBean.currentUser.questionaryEntity.sex} </p>
+		<p> Nazionalita' : ${userSessionBean.currentUser.questionaryEntity.nationality} </p>
+		<p> Professione : ${userSessionBean.currentUser.questionaryEntity.work} </p>
+		<p> Titolo di studio : ${userSessionBean.currentUser.questionaryEntity.education} </p>
+		<br/>
+		<h3> La tua personalita' </h3>
+		<p> ESTROVERSIONE : ${userSessionBean.currentUser.big5Entity.estr} </p>
+		<p> APERTURA MENTALE : ${userSessionBean.currentUser.big5Entity.ape} </p>
+		<p> GRADEVOLEZZA : ${userSessionBean.currentUser.big5Entity.grad} </p>
+		<p> COSCENZIOSITA' : ${userSessionBean.currentUser.big5Entity.cosc} </p>
+		<p> NEVROTICISMO : ${userSessionBean.currentUser.big5Entity.nevr} </p>
+		<br/> <br/>
+		<h:commandButton value="Raccomandami" action="#{recommendationBean.recommend}" />
+		<h:commandButton value="Torna alla home" onclick="top.location.href = '../userHome.xhtml'" />
+	</center>
+	</h:form>
+</f:view>
+</body>
+</html>

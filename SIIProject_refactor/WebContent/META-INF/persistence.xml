@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence persistence_2_0.xsd" version="2.0">
+    <persistence-unit name="my-app" transactionType="JTA">
+    	<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    	<jta-data-source>PostgreSQL Database</jta-data-source>
+        <class>it.uniroma3.sii.javamrs.model.UserEntity</class>
+        <class>it.uniroma3.sii.javamrs.model.Big5Entity</class>
+        <class>it.uniroma3.sii.javamrs.model.QuestionaryEntity</class>
+        <class>it.uniroma3.sii.javamrs.model.QuestionaryValueEntity</class>
+        <class>it.uniroma3.sii.javamrs.model.RecommendationEntity</class>
+        <class>it.uniroma3.sii.javamrs.model.TrackEntity</class>
+        <class>it.uniroma3.sii.javamrs.model.EvaluationEntity</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(SchemaAction='drop,add',ForeignKeys=true)" />
+            <property name="openjpa.jdbc.MappingDefaults" value="ForeignKeyDeleteAction=restrict, JoinForeignKeyDeleteAction=restrict"/>
+        </properties>
+    </persistence-unit>
+</persistence>

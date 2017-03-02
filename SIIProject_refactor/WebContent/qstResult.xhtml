@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+        <link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet" />
+        <link type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet" />
+        <link type="text/css" href="CSS/styles.css" rel="stylesheet" />
+        <script src="http://d3js.org/d3.v3.min.js" />
+        <script src="js/persGraph.js" />
+</head>
+<h:body onload="draw()" id="gallery">
+	<f:view>
+		<h:form>
+			<center>
+				<h2> Risultati del tuo questionario: </h2>
+				<br/>
+				<h3> Informazioni demografiche: </h3>
+				<p> Eta' : ${userSessionBean.currentUser.questionaryEntity.age} </p>
+				<p> Sesso : ${userSessionBean.currentUser.questionaryEntity.sex} </p>
+				<p> Nazionalita' : ${userSessionBean.currentUser.questionaryEntity.nationality} </p>
+				<p> Professione : ${userSessionBean.currentUser.questionaryEntity.work} </p>
+				<p> Titolo di studio : ${userSessionBean.currentUser.questionaryEntity.education} </p>
+				<br/>
+				<h3> La tua personalita' (da 1 a 5) </h3>
+				<p> ESTROVERSIONE : <span id="big5_estr"> ${userSessionBean.currentUser.big5Entity.estr} </span> </p>
+				<p> APERTURA MENTALE : <span id="big5_ape"> ${userSessionBean.currentUser.big5Entity.ape} </span> </p>
+				<p> GRADEVOLEZZA : <span id="big5_grad"> ${userSessionBean.currentUser.big5Entity.grad} </span> </p>
+				<p> COSCENZIOSITA' : <span id="big5_cosc"> ${userSessionBean.currentUser.big5Entity.cosc} </span> </p>
+				<p> NEVROTICISMO : <span id="big5_nevr"> ${userSessionBean.currentUser.big5Entity.nevr} </span> </p>
+				<br/> <br/>
+				<div id="pRadar"></div>
+				<h:commandButton value="Modifica questionario" action="#{userSessionBean.newQuestionnaire}" />
+				<h:commandButton value="Raccomandami" action="#{recommendationBean.recommendation}" />
+				<input type="button" value="Torna alla home" onclick="top.location.href = 'userHome.xhtml'" />
+			</center>
+		</h:form>
+	</f:view>
+</h:body>
+</html>

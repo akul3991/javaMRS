@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+        <link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet" />
+        <link type="text/css" href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet" />
+        <link type="text/css" href="CSS/styles.css" rel="stylesheet" />
+</head>
+<body id="gallery">
+<f:view>
+    <h2>Questionario BIG5 sulla personalit&#224;</h2>
+    <h4>Ad ogni domanda sono associate 5 risposte, che vanno dall'essere <i>In disaccordo fortemente</i>, all'essere  <i>D'accordo fortemente</i>:
+    tu ne dovrai indicare una sola in base a quanto sei o no d'accordo con l'affermazione che si fa nella domanda.
+    Es. "Io mi vedo una persona che...  e' loquace".<br/>
+    Una volta compilato il questionario verrai rimandato alla tua homepage, dove ti verr&#224; mostrata una playlist personalizzata basata sulle tue risposte.
+    </h4>
+    <br/>
+    
+    <h:form>
+    	<center>
+    		Et&#224;:
+    		<div class="error">
+    			<h:message for="ageField" />
+    		</div>
+    		<h:selectOneRadio id="ageField" layout="pageDirection" value="#{questionnaireBean.eta}"
+    		 required="true" requiredMessage="Campo obbligatorio">
+    			<f:selectItem id="age0" itemLabel="" itemValue="0" />
+    			<f:selectItem id="age1" itemLabel="0-18" itemValue="18" />
+    			<f:selectItem id="age2" itemLabel="19-24" itemValue="24" />
+    			<f:selectItem id="age3" itemLabel="25-29" itemValue="29" />
+    			<f:selectItem id="age4" itemLabel="30-35" itemValue="35" />
+    			<f:selectItem id="age5" itemLabel="36-45" itemValue="45" />
+    			<f:selectItem id="age6" itemLabel="46-55" itemValue="55" />
+    			<f:selectItem id="age7" itemLabel="56-oltre" itemValue="56" />
+    		</h:selectOneRadio>
+    		<br/> <br/>
+    		
+    		Sesso:
+    		<div class="error">
+    			<h:message for="genderField" />
+    		</div>
+    		<h:selectOneRadio id="genderField" layout="lineDirection" value="#{questionnaireBean.sesso}"
+    		 required="true" requiredMessage="Campo obbligatorio">
+    			<f:selectItem id="genderM" itemLabel="M" itemValue="M" />
+    			<f:selectItem id="genderF" itemLabel="F" itemValue="F" />
+    		</h:selectOneRadio>
+    		<br/> <br/>
+    		
+    		Nazionalit&#224;:
+    		<div class="error">
+    			<h:message for="nationalityField" />
+    		</div>
+    		<h:selectOneRadio id="nationalityField" layout="lineDirection" value="#{questionnaireBean.nazionalita}"
+    		 required="true" requiredMessage="Campo obbligatorio">
+    			<f:selectItem id="nationIta" itemLabel="Italiana" itemValue="ITA" />
+    			<f:selectItem id="nationNoIta" itemLabel="Altro" itemValue="NO ITA" />
+    		</h:selectOneRadio>
+    		<br/> <br/>
+    		
+    		Professione:
+    		<div class="error">
+    			<h:message for="jobField" />
+    		</div>
+    		<h:selectOneRadio id="jobField" layout="pageDirection" value="#{questionnaireBean.professione}"
+    		 required="true" requiredMessage="Campo obbligatorio">
+    			<f:selectItem id="job0" itemLabel="" itemValue="NoAnsw" />
+    			<f:selectItem id="job1" itemLabel="Disoccupato" itemValue="Disoccupato" />
+    			<f:selectItem id="job2" itemLabel="Studente" itemValue="Studente" />
+    			<f:selectItem id="job3" itemLabel="Impiegato" itemValue="Impiegato" />
+    			<f:selectItem id="job4" itemLabel="Libero Professionista" itemValue="LiberoProfessionista" />
+    			<f:selectItem id="job5" itemLabel="Casalingo" itemValue="Casalingo" />
+    			<f:selectItem id="job6" itemLabel="Pensionato" itemValue="Pensionato" />
+   			</h:selectOneRadio>
+   			<br/> <br/>
+   			
+   			Titolo di studio:
+   			<div class="error">
+   				<h:message for="educationField" />
+   			</div>
+   			<h:selectOneRadio id="educationField" layout="pageDirection" value="#{questionnaireBean.titoloStudio}"
+   			 required="true" requiredMessage="Campo obbligatorio">
+   				<f:selectItem id="edu0" itemLabel="" itemValue="NoAnsw" />
+   				<f:selectItem id="edu1" itemLabel="Non diplomato" itemValue="NonDiplomato" />
+   				<f:selectItem id="edu2" itemLabel="Diploma di maturit&#224;" itemValue="DiplomaMaturita" />
+   				<f:selectItem id="edu3" itemLabel="Laurea triennale" itemValue="Triennale" />
+   				<f:selectItem id="edu4" itemLabel="Laurea magistrale o V.O" itemValue="Magistrale" />
+   				<f:selectItem id="edu5" itemLabel="Dottorato di Ricerca o altro" itemValue="Dottorato" />
+   			</h:selectOneRadio>
+   			<br/> <br/>
+   			
+   			Legenda:
+   			<table id="legend">
+   					<tr>
+   						<td bgcolor="#DCDCDC">
+   						<center>In disaccordo </center> <center> fortemente </center> <center><b>1</b></center>
+   						</td>
+   						<td bgcolor="#FFFFFF">
+   						<center>Un p&#242; in </center> <center> disaccordo </center> <center><b>2</b></center>
+   						</td>
+   						<td bgcolor="#DCDCDC">
+   						<center>N&#232; d'accordo </center> <center>n&#232; in disaccordo </center> <center><b>3</b></center>
+   						</td>
+   						<td bgcolor="#FFFFFF"> 
+   						<center>Un p&#242; </center> <center>d'accordo</center> <center><b>4</b></center>
+   						</td>
+   						<td bgcolor="#DCDCDC">
+   						<center>D'accordo</center> <center>fortemente</center> <center><b>5</b></center>
+   						</td>
+   					</tr>
+            </table>
+            <br/>
+            
+            <h4><b>Io mi vedo una persona che...</b></h4>
+            <ui:repeat value="${questions.questionArray}" var="qst" varStatus="qstId">
+            	<div class="quest"> <b>#{qst}:</b> </div>
+            	<h:selectOneRadio id="question#{qstId.index}" value="#{questionnaireBean.testValues[qstId.index]}" layout="lineDirection">
+            		<f:selectItem id="answer1" itemLabel="1" itemValue="1" />
+            		<f:selectItem id="answer2" itemLabel="2" itemValue="2" />
+            		<f:selectItem id="answer3" itemLabel="3" itemValue="3" />
+            		<f:selectItem id="answer4" itemLabel="4" itemValue="4" />
+            		<f:selectItem id="answer5" itemLabel="5" itemValue="5" />
+            	</h:selectOneRadio>
+            	<br/>
+            </ui:repeat>
+   			<h:commandButton value="INVIO" action="#{questionnaireBean.submit}" /> 
+    	</center>
+    </h:form>
+</f:view>
+</body>
+</html>
